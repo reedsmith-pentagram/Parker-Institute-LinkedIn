@@ -85,9 +85,22 @@ textarea:focus { border-color: var(--ink); }
 .btn.ghost { background: #fff; color: var(--ink); }
 .btn:disabled { opacity: .35; cursor: default; }
 .bar-top { display: flex; padding: 12px 24px; color: var(--mute); }
+/* Phones: the tool needs a computer-sized screen, so show a notice instead */
+#desktop-only { display: none; }
+@media (max-width: 760px) {
+  header, .app { display: none !important; }
+  html, body { background: #fbfaf7; }
+  #desktop-only { display: flex; flex-direction: column; justify-content: center; min-height: 100vh; min-height: 100dvh; padding: 40px 32px calc(40px + env(safe-area-inset-bottom)); background: #fbfaf7; color: #644cff; font-family: "PI Caslon", Georgia, serif; }
+  #desktop-only h1 { font-weight: 400; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 20px; }
+  #desktop-only p { font-size: 15px; line-height: 1.45; margin: 0; }
+}
 </style>
 </head>
 <body>
+<div id="desktop-only" role="note">
+  <h1>This tool is designed for use<br>on a computer.</h1>
+  <p>Please open this link on a desktop or laptop to create your post.</p>
+</div>
 <header>
   <span class="title">Parker Institute&ensp;LinkedIn Post Generator</span>
   <span class="sub">Choose a layout, add your words and images, export a PNG.</span>
